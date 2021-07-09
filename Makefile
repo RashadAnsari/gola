@@ -2,6 +2,9 @@ export BUILD_INFO_PKG="github.com/RashadAnsari/gola/pkg/version"
 
 export LDFLAGS="-w -s -X '$(BUILD_INFO_PKG).AppVersion=latest' -X '$(BUILD_INFO_PKG).Date=$$(date)' -X '$(BUILD_INFO_PKG).BuildVersion=$$(git rev-parse HEAD | cut -c 1-8)' -X '$(BUILD_INFO_PKG).VCSRef=$$(git rev-parse --abbrev-ref HEAD)'"
 
+version:
+	go run -ldflags $(LDFLAGS) ./cmd/gola version
+
 build:
 	go build -ldflags $(LDFLAGS) ./cmd/gola
 

@@ -6,18 +6,16 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sirupsen/logrus"
-
 	"github.com/spf13/viper"
 )
 
 // Init initializes a config struct using default, file, and environment variables.
-func Init(app string, file string, cfg interface{}, defaultConfig string, prefix string) interface{} {
+func Init(app string, file string, cfg interface{}, defaultConfig string, prefix string) error {
 	v := viper.New()
 	v.SetConfigType("yaml")
 
 	if err := v.ReadConfig(bytes.NewReader([]byte(defaultConfig))); err != nil {
-		logrus.Fatalf("error loading default configs: %s", err.Error())
+		return fmt.Errorf("failed to load default config: %s", err.Error())
 	}
 
 	v.SetConfigFile(file)
@@ -31,14 +29,13 @@ func Init(app string, file string, cfg interface{}, defaultConfig string, prefix
 	switch err := v.MergeInConfig(); err.(type) {
 	case nil:
 	case *os.PathError:
-		logrus.Warn("no config file found. Using defaults and environment variables")
 	default:
-		logrus.Warnf("failed to load config file: %s", err.Error())
+		return fmt.Errorf("failed to load config file: %s", err.Error())
 	}
 
 	if err := v.UnmarshalExact(&cfg); err != nil {
-		logrus.Fatalf("failed to unmarshal config into struct: %s", err.Error())
+		return fmt.Errorf("failed to load config file: %s", err.Error())
 	}
 
-	return cfg
+	return nil
 }

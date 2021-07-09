@@ -1,0 +1,39 @@
+run:
+  timeout: 5m
+
+linters:
+  disable-all: true
+  enable:
+    - golint
+    - gofmt
+    - bodyclose
+    - gosimple
+    - prealloc
+    - unused
+    - errcheck
+    - deadcode
+    - govet
+    - varcheck
+    - ineffassign
+    - lll
+    - whitespace
+    - wsl
+    - goimports
+    - godot
+    - misspell
+
+issues:
+  exclude-use-default: false
+
+linters-settings:
+  goimports:
+    local-prefixes: github.com/RashadAnsari
+  lll:
+    line-length: 200
+  godot:
+    scope: all
+    capital: true
+  wsl:
+    force-err-cuddling: true
+    allow-multiline-assign: false
+    allow-assign-and-call: false

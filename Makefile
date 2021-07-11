@@ -16,10 +16,3 @@ format:
 
 lint:
 	@golangci-lint -c build/ci/.golangci.yml run ./...
-
-test:
-	@go test -ldflags $(LDFLAGS) -v -race -p 1 `go list ./...
-
-ci-test:
-	@go test -ldflags $(LDFLAGS) -v -race -p 1 -coverprofile=coverage.txt -covermode=atomic ./...
-	@go tool cover -func coverage.txt

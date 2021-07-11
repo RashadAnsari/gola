@@ -3,6 +3,8 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
+	"github.com/RashadAnsari/gola/internal/app/gola/cmd/commands"
+
 	"github.com/RashadAnsari/gola/internal/app/gola/cmd/run"
 
 	"github.com/RashadAnsari/gola/internal/app/gola/cmd/version"
@@ -23,6 +25,7 @@ func NewRootCommand() *cobra.Command {
 
 	version.Register(root)
 	run.Register(root)
+	commands.Register(root)
 
 	return root
 }

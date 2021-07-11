@@ -113,6 +113,7 @@ fabric.properties
 # End of https://www.gitignore.io/api/go,intellij
 
 .idea
+releases
 .DS_Store
 /gola
 /gola.yaml

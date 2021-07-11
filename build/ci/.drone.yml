@@ -9,3 +9,38 @@ steps:
     image: golangci/golangci-lint:v1.40.1
     commands:
       - make lint
+
+---
+kind: pipeline
+type: docker
+name: release
+
+steps:
+
+  - name: release
+    image: openflag/docker-openflag-builder:latest
+    when:
+      branch:
+        - master
+      event:
+        - tag
+    commands:
+      - make release APP_VERSION=${DRONE_TAG}
+
+  - name: github
+    image: plugins/github-release
+    when:
+      branch:
+        - master
+      event:
+        - tag
+    settings:
+      api_key:
+        from_secret: github_token
+      files: releases/*
+      checksum_file: gola-${DRONE_TAG}-sha256-sum.txt
+      checksum:
+        - sha256
+
+depends_on:
+  - lint

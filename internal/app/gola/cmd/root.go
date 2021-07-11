@@ -1,10 +1,11 @@
 package cmd
 
 import (
-	"github.com/RshadAnsari/gola/internal/app/gola/cmd/version"
-	"github.com/RshadAnsari/gola/internal/app/gola/config"
-	"github.com/RshadAnsari/gola/internal/app/gola/log"
 	"github.com/spf13/cobra"
+
+	"github.com/RashadAnsari/gola/internal/app/gola/cmd/version"
+	"github.com/RashadAnsari/gola/internal/app/gola/config"
+	"github.com/RashadAnsari/gola/internal/app/gola/log"
 )
 
 // NewRootCommand creates a new gola root command.

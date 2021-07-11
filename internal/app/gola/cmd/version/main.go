@@ -1,9 +1,10 @@
 package version
 
 import (
-	"github.com/RshadAnsari/gola/internal/app/gola/log"
-	"github.com/RshadAnsari/gola/pkg/version"
 	"github.com/spf13/cobra"
+
+	"github.com/RashadAnsari/gola/internal/app/gola/log"
+	"github.com/RashadAnsari/gola/pkg/version"
 )
 
 // Register registers version command for gola binary.

@@ -1,4 +1,4 @@
-module github.com/RshadAnsari/gola
+module github.com/RashadAnsari/gola
 
 go 1.16
 

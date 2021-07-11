@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/RshadAnsari/gola/pkg/config"
+	"github.com/RashadAnsari/gola/pkg/config"
 )
 
 const (

@@ -18,7 +18,7 @@ func Init(app string, file string, cfg interface{}, defaultConfig string, prefix
 		return err
 	}
 
-	v.SetConfigFile(file)
+	v.SetConfigName(file)
 	v.SetEnvPrefix(prefix)
 	v.AddConfigPath(fmt.Sprintf("/etc/%s/", app))
 	v.AddConfigPath(fmt.Sprintf("$HOME/.%s", app))
@@ -29,6 +29,7 @@ func Init(app string, file string, cfg interface{}, defaultConfig string, prefix
 	switch err := v.MergeInConfig(); err.(type) {
 	case nil:
 	case *os.PathError:
+		fmt.Println(err.Error())
 	default:
 		return err
 	}

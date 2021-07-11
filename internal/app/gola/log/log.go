@@ -1,36 +1,27 @@
 package log
 
-import "github.com/spf13/cobra"
+import (
+	"os"
+
+	"github.com/spf13/cobra"
+)
 
 // Cmd is a pointer to root cobra command.
 var Cmd *cobra.Command
 
-// Print is a convenience method to Print to the defined output, fallback to Stderr if not set.
-func Print(i ...interface{}) {
-	Cmd.Print(i...)
-}
-
-// Println is a convenience method to Println to the defined output, fallback to Stderr if not set.
+// Println represents a logging output function.
 func Println(i ...interface{}) {
 	Cmd.Println(i...)
 }
 
-// Printf is a convenience method to Printf to the defined output, fallback to Stderr if not set.
-func Printf(format string, i ...interface{}) {
-	Cmd.Printf(format, i...)
-}
-
-// PrintErr is a convenience method to Print to the defined Err output, fallback to Stderr if not set.
-func PrintErr(i ...interface{}) {
-	Cmd.PrintErr(i...)
-}
-
-// PrintErrln is a convenience method to Println to the defined Err output, fallback to Stderr if not set.
-func PrintErrln(i ...interface{}) {
+// Fatal represents a logging output function.
+func Fatal(i ...interface{}) {
 	Cmd.PrintErrln(i...)
+	os.Exit(1)
 }
 
-// PrintErrf is a convenience method to Printf to the defined Err output, fallback to Stderr if not set.
-func PrintErrf(format string, i ...interface{}) {
-	Cmd.PrintErrf(format, i...)
+// Fatalf represents a logging output function.
+func Fatalf(format string, i ...interface{}) {
+	Cmd.PrintErrf(format+"\n", i...)
+	os.Exit(1)
 }

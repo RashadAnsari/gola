@@ -15,7 +15,7 @@ func Init(app string, file string, cfg interface{}, defaultConfig string, prefix
 	v.SetConfigType("yaml")
 
 	if err := v.ReadConfig(bytes.NewReader([]byte(defaultConfig))); err != nil {
-		return fmt.Errorf("failed to load default config: %s", err.Error())
+		return err
 	}
 
 	v.SetConfigFile(file)
@@ -30,11 +30,11 @@ func Init(app string, file string, cfg interface{}, defaultConfig string, prefix
 	case nil:
 	case *os.PathError:
 	default:
-		return fmt.Errorf("failed to load config file: %s", err.Error())
+		return err
 	}
 
 	if err := v.UnmarshalExact(&cfg); err != nil {
-		return fmt.Errorf("failed to load config file: %s", err.Error())
+		return err
 	}
 
 	return nil

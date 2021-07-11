@@ -3,8 +3,9 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
+	"github.com/RashadAnsari/gola/internal/app/gola/cmd/run"
+
 	"github.com/RashadAnsari/gola/internal/app/gola/cmd/version"
-	"github.com/RashadAnsari/gola/internal/app/gola/config"
 	"github.com/RashadAnsari/gola/internal/app/gola/log"
 )
 
@@ -20,12 +21,8 @@ func NewRootCommand() *cobra.Command {
 	// Set Cmd global variable for logging.
 	log.Cmd = root
 
-	_, err := config.Init()
-	if err != nil {
-		log.PrintErr(err.Error())
-	}
-
 	version.Register(root)
+	run.Register(root)
 
 	return root
 }

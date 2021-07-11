@@ -13,6 +13,21 @@ const (
 type (
 	// Config represents application configuration struct.
 	Config struct {
+		Commands []Command `mapstructure:"commands"`
+	}
+
+	// Command represents a shell command with its gola alias name.
+	Command struct {
+		Name string `mapstructure:"name"`
+		Cmd  Cmd    `mapstructure:"cmd"`
+	}
+
+	// Cmd represents a shell command configuration.
+	Cmd struct {
+		Path string   `mapstructure:"path"`
+		Args []string `mapstructure:"args"`
+		Env  []string `mapstructure:"env"`
+		Dir  string   `mapstructure:"dir"`
 	}
 )
 

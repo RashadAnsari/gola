@@ -2,7 +2,6 @@ package config
 
 import (
 	"bytes"
-	"fmt"
 	"os"
 	"strings"
 
@@ -29,7 +28,6 @@ func Init(app string, file string, cfg interface{}, defaultConfig string, prefix
 	switch err := v.MergeInConfig(); err.(type) {
 	case nil:
 	case *os.PathError:
-		fmt.Println(err.Error())
 	default:
 		return err
 	}

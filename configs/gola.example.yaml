@@ -1,0 +1,11 @@
+commands:
+  - name: mysql
+    cmd:
+      path: "mysql"
+      args:
+        - "-u"
+        - "rashad"
+        - "-h"
+        - "127.0.0.1"
+      env:
+        - "MYSQL_PWD=pass"

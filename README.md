@@ -2,11 +2,9 @@
 
 [![Build Status][1]][2]
 
-Gola is a Golang tool for automated scripting purpose
+Gola is a Golang tool for automated scripting purpose.
 
 ## How To Install
-
-You can install `gola` using below command.
 
 ```bash
 OS=darwin ARCH=amd64 VERSION=v0.2.2; wget https://github.com/RashadAnsari/gola/releases/download/$VERSION/gola-$VERSION-$OS-$ARCH && chmod +x gola-$VERSION-$OS-$ARCH && mv gola-$VERSION-$OS-$ARCH gola && mv gola /usr/local/bin

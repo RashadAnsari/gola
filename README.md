@@ -7,7 +7,7 @@ Gola is a Golang tool for automated scripting purpose.
 ## How To Install
 
 ```bash
-OS=darwin ARCH=amd64 VERSION=v0.2.2; wget https://github.com/RashadAnsari/gola/releases/download/$VERSION/gola-$VERSION-$OS-$ARCH && chmod +x gola-$VERSION-$OS-$ARCH && mv gola-$VERSION-$OS-$ARCH gola && mv gola /usr/local/bin
+OS=darwin ARCH=amd64 VERSION=v0.2.3; wget https://github.com/RashadAnsari/gola/releases/download/$VERSION/gola-$VERSION-$OS-$ARCH && chmod +x gola-$VERSION-$OS-$ARCH && mv gola-$VERSION-$OS-$ARCH gola && mv gola /usr/local/bin
 ```
 
 ## Example
